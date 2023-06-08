@@ -51,10 +51,6 @@ exports.updateOrg = async (ctx) => {
   try {
     const { orgId } = ctx.params;
     const params = ctx.request.body;
-    // if (!params.orgName)
-    //   await Organization.updateOrgName(orgId, params.orgName);
-    // if (!params.orgEmail)
-    //   await Organization.updateOrgEmail(orgId, params.orgEmail);
 
     await Organization.updateOrg(orgId, params);
     ctx.response.body = {

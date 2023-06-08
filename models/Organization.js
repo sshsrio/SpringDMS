@@ -22,30 +22,8 @@ exports.deleteOrg = (orgId) => {
   return Organization.findOneAndDelete(orgId);
 };
 
-// exports.updateOrgName = (orgId, orgNewName) => {
-//   console.log(orgId, orgNewName);
-//   return Organization.findOneAndUpdate(
-//     { orgId: orgId },
-//     { orgName: orgNewName },
-//     {
-//       new: true,
-//     }
-//   );
-// };
-
 exports.updateOrg = (orgId, params) => {
-  // console.log(orgId, orgNewName);
   return Organization.findOneAndUpdate({ orgId: orgId }, params, {
     new: true,
   });
 };
-
-// exports.updateOrgEmail = (orgId, orgNewEmail) => {
-//   return Organization.findOneAndUpdate(
-//     { orgId: orgId },
-//     { orgEmail: orgNewEmail },
-//     {
-//       new: true,
-//     }
-//   );
-// };
