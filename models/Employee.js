@@ -29,6 +29,16 @@ exports.getOrgEmployees = (orgId) => {
     {
       $match: { empOrgId: orgId },
     },
+    {
+      $group: {
+        _id: {
+          empId: "$empId",
+          empName: "$empName",
+          empEmail: "$empEmail",
+          empRole: "$empRole",
+        },
+      },
+    },
   ]);
 };
 
