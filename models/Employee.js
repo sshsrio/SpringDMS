@@ -29,15 +29,18 @@ exports.getOrgEmployees = (orgId) => {
     {
       $match: { empOrgId: orgId },
     },
+    // {
+    //   $group: {
+    //     _id: {
+    //       empId: "$empId",
+    //       empName: "$empName",
+    //       empEmail: "$empEmail",
+    //       empRole: "$empRole",
+    //     },
+    //   },
+    // },
     {
-      $group: {
-        _id: {
-          empId: "$empId",
-          empName: "$empName",
-          empEmail: "$empEmail",
-          empRole: "$empRole",
-        },
-      },
+      $project: { empId: 1, empName: 1, empEmail: 1, empRole: 1 },
     },
   ]);
 };
@@ -47,6 +50,9 @@ exports.getOrgEmployeeDetails = (params) => {
   return Employee.aggregate([
     {
       $match: { empOrgId: orgId, empId: empId },
+    },
+    {
+      $project: { empId: 1, empName: 1, empEmail: 1, empRole: 1 },
     },
   ]);
 };
