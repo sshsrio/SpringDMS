@@ -23,3 +23,20 @@ exports.updateEmployee = (empId, params) => {
 exports.removeEmployee = (empId) => {
   return Employee.findOneAndDelete(empId);
 };
+
+exports.getOrgEmployees = (orgId) => {
+  return Employee.aggregate([
+    {
+      $match: { empOrgId: orgId },
+    },
+  ]);
+};
+
+exports.getOrgEmployeeDetails = (params) => {
+  const { orgId, empId } = params;
+  return Employee.aggregate([
+    {
+      $match: { empOrgId: orgId, empId: empId },
+    },
+  ]);
+};

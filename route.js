@@ -12,6 +12,8 @@ const {
   updateEmployeeDetails,
   deleteEmployee,
   getAllEmployees,
+  getOrgEmployeeList,
+  viewOrgEmployeeDetails,
 } = require("./controllers/employee");
 
 const routes = new Router();
@@ -33,5 +35,9 @@ routes.post("/employee", createEmployee);
 routes.get("/employee/:empId", getEmployeeDetails);
 routes.put("/employee/:empId", updateEmployeeDetails);
 routes.delete("/employee/:empId", deleteEmployee);
+
+// Organization Employees
+routes.get("/:orgId/employee", getOrgEmployeeList);
+routes.get("/:orgId/:empId", viewOrgEmployeeDetails);
 
 module.exports = routes;

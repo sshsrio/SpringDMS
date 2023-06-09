@@ -69,3 +69,27 @@ exports.deleteEmployee = async (ctx) => {
     };
   }
 };
+
+exports.getOrgEmployeeList = async (ctx) => {
+  try {
+    const { orgId } = ctx.params;
+    const employeeList = await Employee.getOrgEmployees(orgId);
+    ctx.response.body = employeeList;
+  } catch (err) {
+    ctx.response.body = {
+      message: err,
+    };
+  }
+};
+
+exports.viewOrgEmployeeDetails = async (ctx) => {
+  try {
+    // const { orgId, empId } = ctx.params;
+    const employeeDetails = await Employee.getOrgEmployeeDetails(ctx.params);
+    ctx.response.body = employeeDetails;
+  } catch (err) {
+    ctx.response.body = {
+      message: err,
+    };
+  }
+};
