@@ -15,6 +15,11 @@ const {
   getOrgEmployeeList,
   viewOrgEmployeeDetails,
 } = require("./controllers/employee");
+const {
+  getAllDevices,
+  createDevice,
+  getDeviceDetails,
+} = require("./controllers/device");
 
 const routes = new Router();
 
@@ -37,7 +42,12 @@ routes.put("/employee/:empId", updateEmployeeDetails);
 routes.delete("/employee/:empId", deleteEmployee);
 
 // Organization Employees
-routes.get("/:orgId/employee", getOrgEmployeeList);
-routes.get("/:orgId/:empId", viewOrgEmployeeDetails);
+routes.get("/employees/:orgId/employee", getOrgEmployeeList);
+routes.get("/employee/:orgId/:empId", viewOrgEmployeeDetails);
+
+// Device
+routes.get("/devices", getAllDevices);
+routes.post("/device", createDevice);
+routes.get("/device/:id", getDeviceDetails);
 
 module.exports = routes;
