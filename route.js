@@ -23,6 +23,7 @@ const {
 const {
   createOrgDevices,
   getAllOrgAndDev,
+  deviceUnderOrg,
 } = require("./controllers/organizationDevices");
 
 const routes = new Router();
@@ -56,6 +57,7 @@ routes.get("/device/:id", getDeviceDetails);
 
 // OrganizationDevices
 routes.post("/orgdevices/create", createOrgDevices);
-routes.get("orgdevices", getAllOrgAndDev);
+routes.get("/orgdevices", getAllOrgAndDev);
+routes.get("/org/:orgId/devices", deviceUnderOrg);
 
 module.exports = routes;
