@@ -55,7 +55,7 @@ routes.get("/devices", getAllDevices);
 routes.post("/device", createDevice);
 routes.get("/device/:id", getDeviceDetails);
 
-// OrganizationDevices
+// Organization Devices
 routes.post("/orgdevices/create", createOrgDevices);
 routes.get("/orgdevices", getAllOrgAndDev);
 routes.get("/org/:orgId/devices", deviceUnderOrg);

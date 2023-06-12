@@ -16,7 +16,7 @@ exports.getDetails = (deviceId) => {
       $match: { deviceId: deviceId },
     },
     {
-      $project: { deviceId: 1, deviceName: 1, deviceStatus: 1 },
+      $project: { deviceId: 1, deviceName: 1, deviceStatus: 1, assignedTo: 1 },
     },
   ]);
   //   return Device.find({ deviceId: inDeviceId });

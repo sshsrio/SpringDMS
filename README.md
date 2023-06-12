@@ -2,6 +2,10 @@
 
 Device management system for every organization
 
+## Work In-progress:
+
+- Authentication Middleware
+
 ## Implemented Routes:
 
 **[ Organization ]**
@@ -29,3 +33,9 @@ Device management system for every organization
 
 - Get Employee list of an Organization (`"employees/:orgId/employee"`, method: `get`)
 - Show Specific Employee details of an Organization (`"employee/:orgId/:empId"`, method: `get`)
+
+**[ Organization-Device ]**
+
+- Get All Devices of an Organization (`"/org/:orgId/devices"`, method:`get`)
+- Get All Organizations' Device List (`"/orgdevices"`, method: `get`)
+- Create Organization and Device Collection (`"/orgdevices/create"`, method: `post`)
