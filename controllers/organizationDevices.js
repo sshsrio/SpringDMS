@@ -38,16 +38,6 @@ exports.deviceUnderOrg = async (ctx) => {
   try {
     const { orgId } = ctx.params;
     const devicesList = await OrganizationDevices.getDevUnderOrg(orgId);
-    // console.log(devicesList);
-    // const devices = devicesList.map((item) => item.deviceId);
-    // let l = [];
-    // devices.forEach((item) => {
-    //   const deviceDetail = getDetails(item);
-    //   // console.log(deviceDetail);
-    //   l.push(deviceDetail);
-    // });
-    // console.log(l);
-    console.log({ devicesList });
     ctx.response.body = devicesList;
   } catch (err) {
     ctx.response.body = {
